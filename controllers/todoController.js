@@ -5,6 +5,21 @@ exports.getTodos = (req, res) => {
     res.end(JSON.stringify(todoService.getTodos()));
 };
 
+exports.getTodoById = (req, res, id) => {
+    // TODO: Hole das To-Do mit der passenden ID aus dem Service
+    const todo = todoService.getTodoById(id);; // Hier muss die Methode aus todoService genutzt werden
+
+    // TODO: Falls kein To-Do gefunden wurde, sende eine 404-Fehlermeldung zurück
+    if (!todo) {
+        res.writeHead(404);
+        res.end("Fehler: To-Do nicht gefunden");
+        return;
+    }
+
+    // TODO: Falls das To-Do existiert, sende es als JSON zurück
+    res.end(JSON.stringify(todo));
+};
+
 exports.createTodo = (req, res) => {
     let body = "";
     req.on("data", chunk => { body += chunk; });

@@ -15,6 +15,11 @@ const saveTodos = (todos) => {
 
 exports.getTodos = () => loadTodos();
 
+exports.getTodoById = (id) => {
+    const todos = loadTodos();
+    return todos.find(todo => todo.id == id) || null;
+};
+
 exports.createTodo = (todo) => {
     const todos = loadTodos();
     const newTodo = { id: Date.now(), ...todo };

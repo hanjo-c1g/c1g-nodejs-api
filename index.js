@@ -13,6 +13,8 @@ const server = http.createServer((req, res) => {
         helloController.sayHelloPost(req, res);
     } else if (parsedUrl.pathname === "/todos" && req.method === "GET") {
         todoController.getTodos(req, res);
+    } else if (parsedUrl.pathname.startsWith("/todos/") && req.method === "GET") {
+        todoController.getTodoById(req, res, id);
     } else if (parsedUrl.pathname === "/todos" && req.method === "POST") {
         todoController.createTodo(req, res);
     } else if (parsedUrl.pathname.startsWith("/todos/") && req.method === "PUT") {

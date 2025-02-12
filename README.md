@@ -35,6 +35,18 @@ npm install  # (Nur erforderlich, falls nicht bereits ausgeführt)
 npm start    # Startet den Server
 ```
 
+### Starten des Servers mit automatischem Neustart (`nodemon` erforderlich)
+
+Der Server kann im Entwicklermodus Änderungen gestartet werden, in diesem Modus werden Änderungen im Quellcode direkt übernommen:
+```bash
+npm run dev
+```
+
+Um den Server zu starten.
+```bash
+npm start    # Startet den Server
+```
+
 Der Server läuft nun auf **http://localhost:3000**.
 
 ---

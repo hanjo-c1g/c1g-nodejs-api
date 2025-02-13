@@ -1,0 +1,161 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "To-Do API & Demo Endpunkte",
+      "version": "1.0.0",
+      "description": "Eine einfache To-Do API mit einer Demo für REST-Anfragen"
+    },
+    "tags": [
+      { "name": "To-Do API", "description": "Operationen für To-Dos" },
+      { "name": "Demo API", "description": "Einfache Demo-Endpunkte" }
+    ],
+    "paths": {
+      "/todos": {
+        "get": {
+          "summary": "Gibt alle To-Dos zurück",
+          "tags": ["To-Do API"],
+          "responses": {
+            "200": {
+              "description": "Erfolgreiche Antwort",
+              "content": {
+                "application/json": {
+                  "example": [
+                    { "id": 1, "title": "Milch kaufen", "done": false },
+                    { "id": 2, "title": "Workout machen", "done": true }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "summary": "Erstellt ein neues To-Do",
+          "tags": ["To-Do API"],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "example": { "title": "Neues To-Do", "done": false }
+              }
+            }
+          },
+          "responses": {
+            "201": { "description": "To-Do erstellt" }
+          }
+        }
+      },
+      "/todos/{id}": {
+        "get": {
+          "summary": "Gibt ein einzelnes To-Do zurück",
+          "tags": ["To-Do API"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": { "type": "integer" }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Erfolgreiche Antwort",
+              "content": {
+                "application/json": {
+                  "example": { "id": 1, "title": "Milch kaufen", "done": false }
+                }
+              }
+            },
+            "404": {
+              "description": "To-Do nicht gefunden"
+            }
+          }
+        },
+        "put": {
+          "summary": "Aktualisiert ein To-Do",
+          "tags": ["To-Do API"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": { "type": "integer" }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "example": { "title": "Geändertes To-Do", "done": true }
+              }
+            }
+          },
+          "responses": {
+            "200": { "description": "To-Do aktualisiert" },
+            "404": { "description": "To-Do nicht gefunden" }
+          }
+        },
+        "delete": {
+          "summary": "Löscht ein To-Do",
+          "tags": ["To-Do API"],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": { "type": "integer" }
+            }
+          ],
+          "responses": {
+            "200": { "description": "To-Do gelöscht" }
+          }
+        }
+      },
+      "/hello": {
+        "get": {
+          "summary": "Gibt eine Begrüßung zurück",
+          "tags": ["Demo API"],
+          "parameters": [
+            {
+              "name": "name",
+              "in": "query",
+              "required": false,
+              "schema": { "type": "string" }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Erfolgreiche Antwort",
+              "content": {
+                "text/plain": {
+                  "example": "Hallo, Max!"
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "summary": "Gibt eine personalisierte Begrüßung zurück",
+          "tags": ["Demo API"],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "example": { "name": "Max" }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Erfolgreiche Antwort",
+              "content": {
+                "text/plain": {
+                  "example": "Hallo, Max!"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

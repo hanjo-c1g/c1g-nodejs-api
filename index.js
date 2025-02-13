@@ -2,6 +2,7 @@ const http = require("http");
 const url = require("url");
 const todoController = require("./controllers/todoController");
 const helloController = require("./controllers/helloController");
+const swaggerController = require("./controllers/swaggerController");
 
 const server = http.createServer((req, res) => {
     const parsedUrl = url.parse(req.url, true);
@@ -21,6 +22,10 @@ const server = http.createServer((req, res) => {
         todoController.updateTodo(req, res, id);
     } else if (parsedUrl.pathname.startsWith("/todos/") && req.method === "DELETE") {
         todoController.deleteTodo(req, res, id);
+    } else if (parsedUrl.pathname === "/swagger.json" && req.method === "GET") {
+        swaggerController.swaggerJSON(req, res);
+    } else if (parsedUrl.pathname === "/swagger" && req.method === "GET") {
+        swaggerController.swaggerUI(req, res);
     } else {
         res.writeHead(404);
         res.end("Route not found");

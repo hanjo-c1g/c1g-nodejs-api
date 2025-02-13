@@ -29,22 +29,21 @@ todo-api/
 - **Node.js** (mindestens Version 18)
 - **Terminal oder Eingabeaufforderung**
 
-### Starten des Servers
+### Installieren der Abhängigkeiten
 ```bash
-npm install  # (Nur erforderlich, falls nicht bereits ausgeführt)
-npm start    # Startet den Server
+npm install
 ```
 
-### Starten des Servers mit automatischem Neustart (`nodemon` erforderlich)
+### Starten des Servers
 
 Der Server kann im Entwicklermodus Änderungen gestartet werden, in diesem Modus werden Änderungen im Quellcode direkt übernommen:
 ```bash
-npm run dev
+npm run dev # Startet den Server bei Änderungen neu
 ```
 
 Um den Server zu starten.
 ```bash
-npm start    # Startet den Server
+npm start # Startet den Server
 ```
 
 Der Server läuft nun auf **http://localhost:3000**.
@@ -82,6 +81,7 @@ curl -X DELETE http://localhost:3000/todos/1
 
 ## 🎯 Aufgabenstellung
 **Implementiere die fehlenden Methoden in `todoController.js`**:
+1. **GET /todos** → Hole alle To-Dos
 1. **GET /todos/:id** → Hole ein einzelnes To-Do anhand der ID
 2. **POST /todos** → Speichere ein neues To-Do
 3. **PUT /todos/:id** → Aktualisiere ein bestehendes To-Do
@@ -90,6 +90,7 @@ curl -X DELETE http://localhost:3000/todos/1
 Hinweise:
 - Nutze die fertigen Funktionen aus `todoService.js`.
 - Fehlermeldungen zurückgeben, falls eine ID nicht existiert.
+- Teste die funktion deines Codes mit curl
 
 ---
 

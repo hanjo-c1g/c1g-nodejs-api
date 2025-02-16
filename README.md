@@ -14,10 +14,12 @@ todo-api/
 ├── controllers/           # Enthält die API-Logik
 │   ├── todoController.js  # CRUD-Operationen für To-Dos (mit TODOs)
 │   ├── helloController.js # Demo-Controller für GET und POST
+│   ├── swaggerController.js # API-Dokumentation mit Swagger UI
 ├── services/              # Enthält die Business-Logik
 │   ├── todoService.js     # Alle Methoden zur Datenverarbeitung (fertig implementiert)
-├── data/                  # Enthält die gespeicherten To-Dos
+├── data/                  # Enthält die gespeicherten To-Dos und API-Dokumentation
 │   ├── todos.json         # To-Do-Daten im JSON-Format
+│   ├── swagger.json       # OpenAPI-Spezifikation für Swagger UI
 ├── package.json           # Projekt-Metadaten & Start-Skripte
 ```
 
@@ -76,6 +78,22 @@ curl -X PUT http://localhost:3000/todos/1 -d '{"done": true}'
 ```bash
 curl -X DELETE http://localhost:3000/todos/1
 ```
+
+---
+
+## 🛠️ Arbeiten mit Swagger UI
+
+Swagger UI ist in das Projekt integriert, um die API-Dokumentation bereitzustellen und Endpunkte direkt im Browser zu testen.
+
+### **Swagger UI aufrufen**
+
+Nach dem Start des Servers ist Swagger UI unter folgender URL erreichbar:
+
+```
+http://localhost:3000/swagger
+```
+
+Hier können alle Endpunkte getestet und ihre Strukturen eingesehen werden.
 
 ---
 

@@ -109,6 +109,7 @@ Hinweise:
 - Nutze die fertigen Funktionen aus `todoService.js`.
 - Fehlermeldungen zurückgeben, falls eine ID nicht existiert.
 - Teste die funktion deines Codes mit curl
+- Eine Lösungsvariante findest du im brancht `solution`
 
 ---
 
